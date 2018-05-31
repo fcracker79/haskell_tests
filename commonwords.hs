@@ -1,3 +1,4 @@
+module CommonWords where
 import Data.List (sort)
 
 type StringWithOffset = (String, Int)
@@ -20,11 +21,12 @@ sortStrings s = sort s
 sortedCount :: (SortedStrings, String, Int) -> [StringOccurrency]
 sortedCount0 :: SortedStrings -> [StringOccurrency]
 
-sortedCount (sorted, current, count)
-  | sorted == [] = if current /= "" then [(current, count)] else []
+sortedCount (sorted, current, cnt)
+  | sorted == [] = if current /= "" then [(current, cnt)] else []
   | current == "" = sortedCount ( (drop 1 sorted), sorted!!0, 1)
-  | current == sorted!!0 = sortedCount( (drop 1 sorted), current, (count + 1) )
-  | otherwise = [(current, count)] ++ ( sortedCount ( ( drop 1 sorted), "", 0) )
+  | current == sorted!!0 = sortedCount( (drop 1 sorted), current, (cnt + 1) )
+  | otherwise = [(current, cnt)] ++ ( sortedCount ( ( drop 1 sorted), "", 0) )
 sortedCount0 sorted = sortedCount (sorted, "", 0)
 
+count :: String -> [StringOccurrency]
 count = sortedCount0 . sortStrings . wordsOffsets0

@@ -1,3 +1,4 @@
+module Palindromic where
 palindromic' :: String -> Int -> Bool
 palindromic' s i
     | len == 0 = True

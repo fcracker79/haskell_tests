@@ -1,3 +1,5 @@
+module Tree where
+
 type Space = Int
 type Star = Int
 type Layer = (Space, Star)
@@ -20,5 +22,5 @@ concatLines n
     | n == [] = ""
     | otherwise = n!!0 ++ "\n" ++ (concatLines (drop 1 n))
 
-
+printChristmasTree :: Int -> IO()
 printChristmasTree = putStr . concatLines . christmasTreeArray
