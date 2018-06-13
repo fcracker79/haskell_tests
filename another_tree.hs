@@ -21,5 +21,5 @@ tree h
   | otherwise = Right $ tree' $ TreeLayer noSpaces baseStars where baseStars = 2 * h - 1; noSpaces = 0
 
 printTree :: Either String Tree -> IO ()
-printTree (Right tree) = putStrLn $ concat $ map (\x -> show x ++ "\n") tree
-printTree (Left error) = putStrLn error
+printTree (Right a_tree) = putStrLn $ concat $ map (\x -> show x ++ "\n") a_tree
+printTree (Left errorMessage) = putStrLn errorMessage
