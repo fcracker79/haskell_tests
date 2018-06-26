@@ -24,3 +24,12 @@ isCar (Plane _) = False
 isPlane :: Vehicle -> Bool
 isPlane = not . isCar
 
+areCars :: [Vehicle] -> [Bool]
+areCars vehicles = map isCar vehicles
+
+arePlanes :: [Vehicle] -> [Bool]
+arePlanes vehicles = map isPlane vehicles
+
+getManu :: Vehicle -> Maybe Manufacturer
+getManu (Car manu (Price _)) = Just manu
+getManu (Plane _)= Nothing
