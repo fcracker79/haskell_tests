@@ -1,4 +1,4 @@
-module ChristmasTree where
+module ChristmasTree(tree, printTree) where
 
 
 data TreeLayer = TreeLayer Int Int
