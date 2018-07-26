@@ -1,5 +1,4 @@
 module MadLib where
-import Data.Monoid
 type Verb = String
 type Adjective = String
 type Adverb = String

@@ -44,7 +44,7 @@ numDiff :: Num a => (a, a) -> a
 numDiff x = x1 - x2 where (x1, x2) = x
 
 distance :: Point -> Point -> Double
-distance p1 p2 = sqrt (sum (map (^2) (map numDiff (zip p1 p2))))
+distance p1 p2 = sqrt (sum (map (\x -> x * x) (map numDiff (zip p1 p2))))
 
 circle :: Point -> Double -> Shape
 circle center radius = Shape (\point -> (distance center point) < radius)
@@ -65,7 +65,7 @@ pointToChar env s p
 
 incr :: Environment -> Point -> Point
 incr env p = if px < w / 2 then [(px + 1), py] else [(-w / 2), (py + 1)] where [px, py] = p 
-                                                                               [w, h] = env
+                                                                               [w, _] = env
 -- a ring
 instance Semigroup(SubtractableShape) where
     (SubtractableShape (Shape s1)) <> (SubtractableShape (Shape s2)) = SubtractableShape $ Shape ( \x -> (s1 x) /= (s2 x) )

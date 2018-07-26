@@ -1,5 +1,4 @@
 module Reader where
-import Data.Functor
 
 newtype Reader e a = Reader {run :: (e -> a)}
 
