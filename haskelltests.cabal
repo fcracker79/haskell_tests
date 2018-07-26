@@ -10,16 +10,19 @@ executable christmas_tree
   hs-source-dirs: exe
   main-is: MainChristmasTree.hs
   default-language: Haskell2010
+  ghc-options: -Wall
   build-depends: base >= 4.7 && < 5, haskelltests
   
 executable shapes
   hs-source-dirs: exe
   main-is: Shapes.hs
   default-language: Haskell2010
+  ghc-options: -Wall
   build-depends: base >= 4.7 && < 5, haskelltests, QuickCheck
   
 library
   hs-source-dirs: src
   exposed-modules: Shape,Calendar,ChristmasTree,CommonWords,DataConstructors,EqExercises,Fibonacci,MySum,OrdExercises,Palindromic,PatternMatching,SemigroupExample,Tree,TupleFunctor,MadLib,FpCourse1,Reader
   default-language: Haskell2010
+  ghc-options: -Wall
   build-depends: base >= 4.7 && < 5
