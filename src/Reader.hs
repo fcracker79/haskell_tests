@@ -1,21 +1,8 @@
-data Reader ff = Reader ff
-instance Functor(Reader) where
-    fmap :: ( (e -> a) ff) => f (Reader ff ) = f . ff
+module Reader where
+import Data.Functor
 
-data Reader ff e a = Reader ff e a
-instance Functor(Reader ff e) where
-    fmap f (Reader ff e) = (f . ff) e
+newtype Reader e a = Reader {run :: (e -> a)}
 
-
-type Reader e a = e -> a
-instance Functor(Reader) where
-    fmap f (Reader ff ) = f . ff
-
-
-data Reader e a = (->) e a
 instance Functor(Reader e) where
-    fmap f (Reader ff e a) = ff e f(a)
+    fmap f (Reader r) = Reader (f . r)
 
-newtype Reader e a = Reader { read :: e -> a }
-instance Functor(Reader e) where
-    fmap f (Reader app) = Reader (f . app)
